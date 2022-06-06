@@ -4,6 +4,7 @@
 #include <math.h>
 #define MIN(a, b) (a < b ? a : b)
 
+
 typedef struct job_
 {
 	int id, deadline, profit;
