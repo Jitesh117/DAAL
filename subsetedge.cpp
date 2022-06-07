@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    int n = 4, m = 6;
+    int n = 5, m = 6;
     vector<pair<int, int>> adj[n];
     int a, b, wt;
     adj[0].push_back({1, 2});
