@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define node 7
+#define node 6
 #define inf 999
 int costmatrix[node][node] =
     {
-        {0, 3, 6, inf, inf, inf, inf},
-        {3, 0, 2, 1, inf, inf, inf},
-        {6, 2, 0, 1, 4, 2, inf},
-        {inf, 1, 1, 0, 2, inf, 4},
-        {inf, inf, 4, 2, 0, 2, 1},
-        {inf, inf, 2, inf, 2, 0, 1},
-        {inf, inf, inf, 4, 1, 1, 0}};
+        {0, 3, 7, inf, 20, 6}, 
+        {inf,0,inf,inf,inf,2},
+        {inf,inf,0,8,6,inf},
+        {inf,inf,inf,0,4,inf},
+        {inf,inf,inf,inf,0,inf},
+        {inf,inf,inf,3,inf,0}
+        };
 void solve()
 {
     int cost[node][node];
@@ -29,7 +29,7 @@ void solve()
     {
         for (int j = 0; j < n; j++)
         {
-            cout << setw(3) << cost[i][j];
+            cout << setw(5) << cost[i][j];
         }
         cout << endl;
     }
