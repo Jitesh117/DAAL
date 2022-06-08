@@ -8,7 +8,8 @@ bool safe(vector<string> &board, int row, int col, int n)
     {
         if (board[row][col] == 'Q')
             return false;
-        row--, col--;
+        row--;
+        col--;
     }
     row = duprow;
     col = dupcol;
@@ -18,9 +19,9 @@ bool safe(vector<string> &board, int row, int col, int n)
             return false;
         col--;
     }
-    row = duprow;
     col = dupcol;
-    while (row < n and col >= 0)
+    row = duprow;
+    while (col >= 0 and row < n)
     {
         if (board[row][col] == 'Q')
             return false;
@@ -28,7 +29,7 @@ bool safe(vector<string> &board, int row, int col, int n)
     }
     return true;
 }
-void solve(int col, vector<string> &board, vector<vector<string>> &result, int n)
+void queen(int col, vector<string> &board, vector<vector<string>> &result, int n)
 {
     if (col == n)
     {
@@ -36,39 +37,37 @@ void solve(int col, vector<string> &board, vector<vector<string>> &result, int n
         return;
     }
     for (int row = 0; row < n; row++)
-    {
         if (safe(board, row, col, n))
         {
             board[row][col] = 'Q';
-            solve(col + 1, board, result, n);
+            queen(col + 1, board, result, n);
             board[row][col] = '.';
         }
-    }
 }
 int main()
 {
-    cout << "Enter value of n:";
     int n;
+    cout << "Enter the value of n:";
     cin >> n;
+    vector<string> board(n);
     vector<vector<string>> result;
     string s(n, '.');
-    vector<string> board(n);
     for (int i = 0; i < n; i++)
         board[i] = s;
-    solve(0, board, result, n);
-    cout << result.size() << endl;
+    queen(0, board, result, n);
+    int k = 1;
     for (auto it : result)
     {
+        cout << "solution :" << k << endl;
+        k++;
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < n; j++)
-            {
                 cout << it[i][j];
-            }
+
             cout << endl;
         }
         cout << endl
              << endl;
     }
-    return 0;
 }

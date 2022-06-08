@@ -4,13 +4,13 @@ using namespace std;
 #define inf 999
 int costmatrix[node][node] =
     {
-        {0, 3, 7, inf, 20, 6}, 
-        {inf,0,inf,inf,inf,2},
-        {inf,inf,0,8,6,inf},
-        {inf,inf,inf,0,4,inf},
-        {inf,inf,inf,inf,0,inf},
-        {inf,inf,inf,3,inf,0}
-        };
+        {0, 3, 7, inf, 20, 6},
+        {inf, 0, inf, inf, inf, 2},
+        {inf, inf, 0, 8, 6, inf},
+        {inf, inf, inf, 0, 4, inf},
+        {inf, inf, inf, inf, 0, inf},
+        {inf, inf, inf, 3, inf, 0}
+    };
 void solve()
 {
     int cost[node][node];

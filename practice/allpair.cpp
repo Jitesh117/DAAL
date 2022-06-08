@@ -1,19 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define node 6
+#define node 5
 #define inf 999
 int costmatrix[node][node] =
     {
-        {0, 3, 7, inf, 20, 6},
-        {inf, 0, inf, inf, inf, 2},
-        {inf, inf, 0, 8, 6, inf},
-        {inf, inf, inf, 0, 4, inf},
-        {inf, inf, inf, inf, 0, inf},
-        {inf, inf, inf, 3, inf, 0}};
+        {0, 1, -3, 2, -4},
+        {3, 0, -4, 1, -1},
+        {7, 4, 0, 5, 3},
+        {2, -1, -5, 0, -2},
+        {8, 5, 1, 6, 0}};
 void solve()
 {
     int cost[node][node];
-    int n = 6;
+    int n = 5;
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             cost[i][j] = costmatrix[i][j];
@@ -36,13 +35,13 @@ void solve()
 }
 int main()
 {
-// #ifndef ONLINE_JUDGE
+    // #ifndef ONLINE_JUDGE
 
-//     freopen("input.txt", "r", stdin);
+    //     freopen("input.txt", "r", stdin);
 
-//     freopen("output.txt", "w", stdout);
+    //     freopen("output.txt", "w", stdout);
 
-// #endif // ONLINE_JUDGE
+    // #endif // ONLINE_JUDGE
     solve();
 
     return 0;
