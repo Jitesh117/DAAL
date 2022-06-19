@@ -8,7 +8,7 @@ struct job
 };
 bool comparison(job a, job b)
 {
-    return a.profit > b.profit;
+    return a.profit > b.profit; 
 }
 void printjob(job arr[], int n)
 {
@@ -23,12 +23,28 @@ void printjob(job arr[], int n)
         {
             if(slot[j] == false)
             {
-                slot[j] = false;
+                slot[j] = true;
                 result[j] = i;
+                break;
             }
         }
     }
     for (int i = 0; i < n;i++)
     if(slot[i])
         cout << arr[result[i]].id << " ";
+}
+int main()
+{
+    job arr[] = {{'a', 2, 100},
+                 {'b', 1, 19},
+                 {'c', 2, 27},
+                 {'d', 1, 25},
+                 {'e', 3, 15}};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << "Following is maximum profit sequence of jobs "
+            "\n";
+
+    // Function call
+    printjob(arr, n);
+    return 0;
 }

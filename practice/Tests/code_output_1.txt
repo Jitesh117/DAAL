@@ -1,6 +1,0 @@
-Node: 0 assigned with color: 0
-Node: 1 assigned with color: 1
-Node: 2 assigned with color: 1
-Node: 3 assigned with color: 2
-Node: 4 assigned with color: 0
-Node: 5 assigned with color: 3

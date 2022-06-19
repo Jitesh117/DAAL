@@ -24,7 +24,7 @@ int main()
         key[i] = INT_MAX, mstset[i] = false;
     key[0] = 0;
     parent[0] = -1; // mstset[0] = true;
-    for (int count = 0; count < n-1; count++)
+    for (int count = 0; count < n - 1; count++)
     {
         int mini = INT_MAX, u;
         for (int v = 0; v < n; v++)
@@ -41,6 +41,6 @@ int main()
             }
         }
     }
-    for (int i = 1; i < n;i++)
+    for (int i = 1; i < n; i++)
         cout << parent[i] << "-" << i << endl;
 }

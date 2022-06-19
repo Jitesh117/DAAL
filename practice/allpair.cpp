@@ -12,21 +12,18 @@ int costmatrix[node][node] =
 void solve()
 {
     int cost[node][node];
-    int n = 5;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
+    for (int i = 0; i < node; i++)
+        for (int j = 0; j < node; j++)
             cost[i][j] = costmatrix[i][j];
-    for (int k = 0; k < n; k++)
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-            {
+    for (int k = 0; k < node; k++)
+        for (int i = 0; i < node; i++)
+            for (int j = 0; j < node; j++)
                 if (cost[i][k] + cost[k][j] < cost[i][j])
                     cost[i][j] = cost[i][k] + cost[k][j];
-            }
-    cout << "The matrix for shortes paths is:\n";
-    for (int i = 0; i < n; i++)
+    cout << "The shortest path matrix is:" << endl;
+    for (int i = 0; i < node; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < node; j++)
         {
             cout << setw(5) << cost[i][j];
         }

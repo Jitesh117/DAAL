@@ -17,27 +17,30 @@ int main()
     adj[3].push_back({1, 8});
     adj[4].push_back({1, 5});
     adj[4].push_back({2, 7});
-
     int key[n], parent[n];
     bool mstset[n];
-    for (int i = 0; i < n;i++)
-        key[n] = INT_MAX, mstset[i] = false;
+    for (int i = 0; i < n; i++)
+        key[i] = INT_MAX, mstset[i] = false;
     key[0] = 0;
     parent[0] = -1;
-    for (int count=0;count<n-1;count++)
+    for (int count = 0; count < n - 1; count++)
     {
         int mini = INT_MAX, u;
-        for (int v = 0; v < n;v++)
-            if(key[v]<mini and mstset[v] == false)
+        for (int v = 0; v < n; v++)
+        {
+            if (key[v] < mini and mstset[v] == false)
                 mini = key[v], u = v;
+        }
         mstset[u] = true;
-        for (auto it:adj[u])
+        for (auto it : adj[u])
         {
             int weight = it.second;
             int v = it.first;
-            if(key[v]>weight and mstset[v] == false)
+            if (weight < key[v] and mstset[v] == false)
                 parent[v] = u, key[v] = weight;
-                
         }
     }
+    for (int i = 1; i < n; i++)
+        cout << parent[i] << "-" << i << endl;
+    return 0;
 }

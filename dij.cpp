@@ -5,40 +5,37 @@ int miniDist(int distance[], bool Tset[]) // finding minimum distance
 {
     int minimum = INT_MAX;
     int ind;
-    for (int i = 0; i < 6; i++)
-        if (distance[i] < minimum and Tset[i] == false)
-        {
-            minimum = distance[i];
-            ind = i;
-        }
+    for (int i = 0; i < 6;i++)
+    {
+        if(distance[i]<minimum and Tset[i] == false)
+            {
+                minimum = distance[i];
+                ind = i;
+            }
+    }
     return ind;
 }
 
 void DijkstraAlgo(int graph[6][6], int src) // adjacency matrix
 {
     int distance[6];
-    bool Tset[6];
-
-    for (int k = 0; k < 6; k++)
-    {
-        distance[k] = INT_MAX;
-        Tset[k] = false;
-    }
-
+    bool tset[6];
     distance[src] = 0;
+    for (int i = 1; i < 6;i++)
+        distance[i] = INT_MAX, tset[i] = false;
 
-    for (int k = 0; k < 6; k++)
+    int n = 6;
+    for (int i = 0; i < n;i++)
     {
-        int m = miniDist(distance, Tset);
-        Tset[m] = true;
-        for (int k = 0; k < 6; k++)
+        int m = miniDist(distance, tset);
+        tset[m] = true;
+        for (int k = 0; k < n;k++)
         {
-
-            if (!Tset[k] && graph[m][k] && distance[m] != INT_MAX && distance[m] + graph[m][k] < distance[k])
+            if(graph[m][k] and tset[k]==false and distance[m]!=INT_MAX and distance[k]>distance[m]+graph[m][k])
                 distance[k] = distance[m] + graph[m][k];
         }
     }
-    cout << "Vertex\t\tDistance from source vertex" << endl;
+        cout << "Vertex\t\tDistance from source vertex" << endl;
     for (int k = 0; k < 6; k++)
     {
         char str = 65 + k;

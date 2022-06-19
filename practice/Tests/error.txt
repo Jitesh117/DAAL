@@ -1,0 +1,1 @@
+Command failed: "c:/coding/OSL/DAAL/practice/Tests/a.exe" 1 < "c:/coding/OSL/DAAL/practice/Tests/input_1.txt" > "c:/coding/OSL/DAAL/practice/Tests/code_output_1.txt"

@@ -12,7 +12,6 @@ int minComputation(int size, int files[])
 
     for (int i = 0; i < size; i++)
     {
-
         // Add sizes to priorityQueue
         pq.push(files[i]);
     }

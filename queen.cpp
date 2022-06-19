@@ -1,73 +1,68 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-bool safe(vector<string> &board, int row, int col, int n)
+bool safe(int col,int row,vector<string>board,int n)
 {
     int duprow = row;
     int dupcol = col;
-    while (row >= 0 and col >= 0)
+    while(row>=0 and col>=0)
     {
-        if (board[row][col] == 'Q')
+        if(board[row][col] == 'Q')
             return false;
         row--;
         col--;
     }
     row = duprow;
     col = dupcol;
-    while (col >= 0)
+    while(col>=0)
     {
-        if (board[row][col] == 'Q')
+        if(board[row][col] == 'Q')
             return false;
         col--;
     }
     col = dupcol;
-    row = duprow;
-    while (col >= 0 and row < n)
+    while(row<n and col>=0)
     {
-        if (board[row][col] == 'Q')
+        if(board[row][col] == 'Q')
             return false;
-        row++, col--;
+        row++;
+        col--;
     }
     return true;
 }
-void queen(int col, vector<string> &board, vector<vector<string>> &result, int n)
+void queen(int col, int n,vector<vector<string>> & result, vector<string> board)
 {
-    if (col == n)
+    if( col == n)
     {
         result.push_back(board);
-        return;
+        for (int i = 0; i < n;i++)
+           {
+               for (int j = 0; j < n;j++)
+                   cout << board[i][j];
+               cout << endl;
+           }
+           cout << endl;
+           return;
     }
-    for (int row = 0; row < n; row++)
-        if (safe(board, row, col, n))
+    for (int row = 0; row < n;row++)
+    {
+        if(safe(col,row,board,n))
         {
             board[row][col] = 'Q';
-            queen(col + 1, board, result, n);
+            queen(col + 1, n, result, board);
             board[row][col] = '.';
         }
+    }
 }
 int main()
 {
     int n;
-    cout << "Enter the value of n:";
+    cout << "Enter value of n";
     cin >> n;
+    string s(n, '.');
     vector<string> board(n);
     vector<vector<string>> result;
-    string s(n, '.');
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n;i++)
         board[i] = s;
-    queen(0, board, result, n);
-    int k = 1;
-    for (auto it : result)
-    {
-        cout << "solution :" << k << endl;
-        k++;
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-                cout << it[i][j];
-
-            cout << endl;
-        }
-        cout << endl
-             << endl;
-    }
+    queen(0, n, result, board);
+    return 0;
 }
